@@ -6,20 +6,21 @@ import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
 class ViewPagerAdapter (fragmentActivity: FragmentActivity) :
-        FragmentStatePagerAdapter(fragmentActivity) {
-    private val JUMLAH_MENU = 3
+        FragmentStateAdapter(fragmentActivity){
+            private val JUMLAH_MENU = 3
 
-            override fun createFragment(position: Int): Fragment{
-                when (position) {
-                    0 ->{return MyFriendsFragment()}
-                    1 -> {return GitHubFragment()}
-                    2 -> {return ProfileFragment()}
-                    else -> {return GitHubFragment()}
-                }
-            }
+    override fun createFragment(position: Int): Fragment {
+        when (position) {
+            0 -> {return MyFriendsFragment()}
+            1 -> {return GitHubFragment()}
+            2 -> {return ProfileFragment()}
+            else -> {return GitHubFragment()}
+        }
+    }
 
-    override fun getCount(): Int {
+    override fun getItemCount(): Int {
         return JUMLAH_MENU
     }
-}
+        }
+
 
